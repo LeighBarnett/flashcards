@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 //     console.log("DB connection established!!!");
 // })
 
-mongoose.connect(process.env.mongodb://<leighbarnett5@gmail.com>:<Lb051088+>@ds147052.mlab.com:47052/flashcards1||'mongodb://localhost/flashcards');
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/flashcards');
 
 
 var app = express();
