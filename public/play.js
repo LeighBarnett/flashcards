@@ -24,6 +24,9 @@ var digitalFlashPlayApp = function () {
 
 
     var renderCardsPlay = function () {
+        attemptCounter = 0;
+        counter = 0;
+        totalScore = 0;
         $('.cardList').empty();
         if (counter < cards.length) {
             var source = $('#render-card').html();
@@ -70,17 +73,20 @@ var digitalFlashPlayApp = function () {
     };
 
     var calcScore = function () {
-        totalScore = totalScore + cards[counter-1].level*(10 - (3 * attemptCounter))
+        totalScore = totalScore + cards[counter - 1].level * (10 - (3 * attemptCounter))
     };
     var renderAnswer = function (res) {
         console.log(attemptCounter)
+        if (res == undefined) {
+            res = "Better luck next time"
+        }
         var $cardList = $('.cardList')
         calcScore()
         $cardList.empty();
         $cardList.append('<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
             '<h2>' + 'The answer is:  ' + cards[counter - 1].back + '</h2> </div>')
         $cardList.append('<p>' + res + '</p>')
-        var levelScore = cards[counter-1].level*(10 - (3 * attemptCounter))
+        var levelScore = cards[counter - 1].level * (10 - (3 * attemptCounter))
         $cardList.append('<p>' + 'Score =' + levelScore + '</p>')
         attemptCounter = 0
         $cardList.append('<p>' + 'Total score =' + totalScore + '</p>')
