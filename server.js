@@ -55,6 +55,4 @@ app.delete('/cards/:cardId', function (req, res) {
 
 
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log('Server up and running on port gg 3000 ;-)');
-});
+app.listen(process.env.PORT || 3000);
