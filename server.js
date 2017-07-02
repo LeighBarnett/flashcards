@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/digitalflashDB', function() {
-    console.log("DB connection established!!!");
-})
+// mongoose.connect('mongodb://localhost/digitalflashDB', function() {
+//     console.log("DB connection established!!!");
+// })
+
+mongoose.connect(process.env.mongodb://<leighbarnett5@gmail.com>:<Lb051088+>@ds147052.mlab.com:47052/flashcards1||'mongodb://localhost/flashcards');
 
 
 var app = express();
@@ -14,8 +16,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 var Card = require("./models/cardModel")
-
-
 
 app.get('/cards', function(req, res) {
     Card.find(function(error, data) {
@@ -55,6 +55,6 @@ app.delete('/cards/:cardId', function (req, res) {
 
 
 
-app.listen(3000, function() {
-    console.log('Server up and running on port 3000 ;-)');
+app.listen(process.env.PORT || 3000, function() {
+    console.log('Server up and running on port gg 3000 ;-)');
 });

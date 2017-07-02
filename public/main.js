@@ -6,7 +6,7 @@ var digitalFlashApp = function () {
             url: '/cards',
             type: 'get',
             error: function (err, status) {
-                console.error(status)
+                console.error(err)
             },
             success: function (data) {
                 cards = data;
@@ -91,17 +91,13 @@ $(".saveCard").click(function () {
         return false;
     }
 
-
     var diff = $(this).siblings('.diif-select').find('#sel1').val();
-
 
     var newCard = {
         front: front,
         back: back,
-        hint: hint,
         level: diff,
     };
-    console.log(newCard);
     app.addCard(newCard);
 
     $(this).siblings('.frontText').val('');
